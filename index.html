@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Halaman Page</title>
+    <link rel="stylesheet" href="stylee.css">
+</head>
+<body>
+    <div class="container">
+        
+        <div class="slider">
+            <img id="slide" src="farid7.jpg" alt="Slider Image">
+        </div>
+
+        
+        <div class="main">
+            
+            <div class="sidebar">
+                <button onclick="changeSlideAndContent(0, 'home')">Home</button>
+                <button onclick="changeSlideAndContent(1, 'education')">Education</button>
+                <button onclick="changeSlideAndContent(2, 'family')">Family</button>
+                <button onclick="changeSlideAndContent(3, 'about')">About</button>
+            </div>
+            
+            <div class="content" id="content">
+                <p>Click Tombolnya, kita akan jadi teman setelah ini</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+        let currentSlide = 0;
+        const slides = [
+            "welc2.jpg",
+            "aw.png", 
+            "fam3.jpg", 
+            "a.jpg"
+        ];
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            document.getElementById('slide').src = slides[currentSlide];
+        }
+
+        function changeSlideAndContent(slideIndex, section) {
+
+            currentSlide = slideIndex;
+            document.getElementById('slide').src = slides[currentSlide];
+
+            const content = {
+                home: "<h2>Home</h2><p>Selamat Datang di Personal Page Saya. Ayo Berkawan.</p>",
+                education: "<h2>Education</h2><p>Saya memulai pendidikan dari TK Islam Tarbiyah Ende</p><p>Kemudian masuk ke SDN 1 Ende</p><p>Lalu melanjukan bersekolah di SMPN 1 Ende, kemudian lanjut ke SMAN 2 Ende</p><p>Setelah itu memutuskan untuk melanjutkan pendidikan di INSTIKI dengan mengambil jurusan Informatika</p>",
+                family: "<h2>Family</h2><p>Saya adalah anak ke empat dari empat bersaudara</p><p>Ayah saya bernama Musafir D. Djafar, dan ibu saya bernama Hamida Yusuf</p><p>Kakak pertama saya sudah menikah dan memiliki satu anak perempuan</p><p>Dua kakak saya yang lain belum menikah dan kini mereka bertiga tinggal di sumba.</p>",
+                about: "<h2>About</h2><p>Hallo apakabar?</p><p>Perkenalkan nama saya Muhammad Farid, biasa disapa dengan Farid</p><p>Saya adalah mahasiswa Instiki semester 1</p><p>Nim saya 2401010399, dan saya tinggal di jln.Tukad Banyusari,Sesetan</p><p>Hobi saya Berenang dan Memanah</p>"
+            };
+            document.getElementById('content').innerHTML = content[section];
+        }
+    </script>
+</body>
+</html>
